@@ -7,23 +7,25 @@ class DAO extends CI_Model{
         parent::__construct();
     }
 
-    function getUsers(){
-        $query = $this->db->get('tb_users');
-        return $query->result();
+    function selectEntity($entityName, $whereClause= array(),$isUnique = FALSE){
+        if ($whereClause) {
+            $this->db->where($whereClause);
+        }
+        $query = $this->db->get($entityName);
+        if ($isUnique) {
+           return $query->row();
+        }else{
+            return $query->result();
+        }
     }
 
-    function insertUsers($data){
-        $query = $this->db->insert('tb_users',$data);
-    }
-
-    function updateUsers($data,$email){
-        $this->db->where('email_users',$email);
-        $query = $this->db->update('tb_users',$data);
-    }
-
-    function deleteUsers($email){
-        $this->db->where('email_users',$email);
-        $query = $this->db->delete('tb_users');
+    function saveOrUpdate($entityName,$data,$whereClause = array()){
+        if ($whereClause) {
+            $this->db->where($whereClause);
+            $this->db->update($entityName,$data);
+        }else{
+            $this->db->insert($entityName,$data);
+        }
     }
 
     
