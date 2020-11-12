@@ -28,6 +28,11 @@ class DAO extends CI_Model{
         }
     }
 
+    function deleteItemEntity($entityName,$whereClause){
+        $this->db->where($whereClause);
+        $this->db->delete($entityName);
+    }
+
     
 
 }
