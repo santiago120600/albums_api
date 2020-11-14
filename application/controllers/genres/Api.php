@@ -137,6 +137,14 @@ class Api extends REST_Controller
             $genre_exists = $this->DAO->selectEntity('genre', array('genre_id' => $this->get('pid')), true);
             if ($genre_exists) {
                 $this->DAO->deleteItemEntity('genre',array('genre_id' => $this->get('pid')));
+                $response = array(
+                    "status" => 200,
+                    "status_text" => "succes",
+                    "api" => "genres/api/genres",
+                    "method" => "DELETE",
+                    "message" => "Genero borrado correctamente",
+                    "data" => null,
+                );
             }else{
                 $response = array(
                     "status" => 404,
@@ -145,14 +153,6 @@ class Api extends REST_Controller
                     "method" => "DELETE",
                     "message" => "Genero no localizado",
                     "errors" => array(),
-                    "data" => null,
-                );
-                $response = array(
-                    "status" => 200,
-                    "status_text" => "succes",
-                    "api" => "genres/api/genres",
-                    "method" => "DELETE",
-                    "message" => "Genero borrado correctamente",
                     "data" => null,
                 );
             }
@@ -167,6 +167,7 @@ class Api extends REST_Controller
                 "data" => null,
             );
         }
+        $this->response($response, 200);
     }
 
 }

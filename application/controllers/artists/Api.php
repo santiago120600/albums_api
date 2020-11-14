@@ -132,6 +132,14 @@ class Api extends REST_Controller
             $artist_exists = $this->DAO->selectEntity('artists', array('artist_id' => $this->get('pid')), true);
             if ($artist_exists) {
                 $this->DAO->deleteItemEntity('artists', array('artist_id' => $this->get('pid')));
+                $response = array(
+                    "status" => 200,
+                    "status_text" => "succes",
+                    "api" => "artists/api/artists",
+                    "method" => "DELETE",
+                    "message" => "Artista borrado correctamente",
+                    "data" => null,
+                );
             } else {
                 $response = array(
                     "status" => 404,
@@ -140,14 +148,6 @@ class Api extends REST_Controller
                     "method" => "DELETE",
                     "message" => "Artista no localizado",
                     "errors" => array(),
-                    "data" => null,
-                );
-                $response = array(
-                    "status" => 200,
-                    "status_text" => "succes",
-                    "api" => "artists/api/artists",
-                    "method" => "DELETE",
-                    "message" => "Artista borrado correctamente",
                     "data" => null,
                 );
             }
@@ -162,6 +162,7 @@ class Api extends REST_Controller
                 "data" => null,
             );
         }
+        $this->response($response, 200);
     }
 
 }
