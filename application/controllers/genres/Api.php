@@ -80,9 +80,9 @@ class Api extends REST_Controller
                 if ($this->form_validation->run()) {
                     // si valida
                     $data = array(
-                        "genre_name" => $this->post('pGenre'),
+                        "genre_name" => $this->put('pGenre'),
                     );
-                    $this->DAO->saveOrUpdate('genre', $data, array('genre_id' => $this->post('pid')));
+                    $this->DAO->saveOrUpdate('genre', $data, array('genre_id' => $this->get('pid')));
 
                     $response = array(
                         "status" => 200,

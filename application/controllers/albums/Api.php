@@ -120,13 +120,13 @@ class Api extends REST_Controller
 
                 if ($this->form_validation->run()) {
                     $data = array(
-                        'album_name' => $this->post('pName'),
-                        'album_date_released' => $this->post('pDate'),
-                        'album_time_released' => $this->post('pTime'),
-                        'artist_fk' => $this->post('pArtists'),
-                        'genre_fk' => $this->post('pGenre'),
+                        'album_name' => $this->put('pName'),
+                        'album_date_released' => $this->put('pDate'),
+                        'album_time_released' => $this->put('pTime'),
+                        'artist_fk' => $this->put('pArtists'),
+                        'genre_fk' => $this->put('pGenre'),
                     );
-                    $this->DAO->saveOrUpdate('albums', $data, array('album_id' => $this->post('pid')));
+                    $this->DAO->saveOrUpdate('albums', $data, array('album_id' => $this->get('pid')));
 
                     $response = array(
                         "status" => 200,

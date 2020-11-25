@@ -77,9 +77,9 @@ class Api extends REST_Controller
                 $this->form_validation->set_rules('pName', 'Nombre', 'required');
                 if ($this->form_validation->run()) {
                     $data = array(
-                        "artist_name" => $this->post('pName'),
+                        "artist_name" => $this->put('pName'),
                     );
-                    $this->DAO->saveOrUpdate('artists', $data, array('artist_id' => $this->post('pid')));
+                    $this->DAO->saveOrUpdate('artists', $data, array('artist_id' => $this->get('pid')));
 
                     $response = array(
                         "status" => 200,
