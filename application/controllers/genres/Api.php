@@ -48,7 +48,7 @@ class Api extends REST_Controller
 
             $response = array(
                 "status" => 200,
-                "status_text" => "succes",
+                "status_text" => "success",
                 "api" => "genres/api/genres",
                 "method" => "POST",
                 "message" => "Registro correcto",
@@ -86,7 +86,7 @@ class Api extends REST_Controller
 
                     $response = array(
                         "status" => 200,
-                        "status_text" => "succes",
+                        "status_text" => "success",
                         "api" => "genres/api/genres",
                         "method" => "PUT",
                         "message" => "Genero actualizado correctamente",
@@ -139,7 +139,7 @@ class Api extends REST_Controller
                 $this->DAO->deleteItemEntity('genre',array('genre_id' => $this->get('pid')));
                 $response = array(
                     "status" => 200,
-                    "status_text" => "succes",
+                    "status_text" => "success",
                     "api" => "genres/api/genres",
                     "method" => "DELETE",
                     "message" => "Genero borrado correctamente",

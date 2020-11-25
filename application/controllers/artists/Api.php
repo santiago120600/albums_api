@@ -47,7 +47,7 @@ class Api extends REST_Controller
 
             $response = array(
                 "status" => 200,
-                "status_text" => "succes",
+                "status_text" => "success",
                 "api" => "artists/api/artists",
                 "method" => "POST",
                 "message" => "Registro correcto",
@@ -83,7 +83,7 @@ class Api extends REST_Controller
 
                     $response = array(
                         "status" => 200,
-                        "status_text" => "succes",
+                        "status_text" => "success",
                         "api" => "artists/api/artists",
                         "method" => "PUT",
                         "message" => "artista actualizado correctamente",
@@ -134,7 +134,7 @@ class Api extends REST_Controller
                 $this->DAO->deleteItemEntity('artists', array('artist_id' => $this->get('pid')));
                 $response = array(
                     "status" => 200,
-                    "status_text" => "succes",
+                    "status_text" => "success",
                     "api" => "artists/api/artists",
                     "method" => "DELETE",
                     "message" => "Artista borrado correctamente",

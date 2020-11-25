@@ -53,7 +53,7 @@ class Api extends REST_Controller
             $this->DAO->saveOrUpdate('albums', $data);
             $response = array(
                 "status" => 200,
-                "status_text" => "succes",
+                "status_text" => "success",
                 "api" => "albums/api/albums",
                 "method" => "POST",
                 "message" => "Registro correcto",
@@ -130,7 +130,7 @@ class Api extends REST_Controller
 
                     $response = array(
                         "status" => 200,
-                        "status_text" => "succes",
+                        "status_text" => "success",
                         "api" => "albums/api/albums",
                         "method" => "PUT",
                         "message" => "Album actualizado correctamente",
@@ -181,7 +181,7 @@ class Api extends REST_Controller
                 $this->DAO->deleteItemEntity('albums', array('album_id' => $this->get('pid')));
                 $response = array(
                     "status" => 200,
-                    "status_text" => "succes",
+                    "status_text" => "success",
                     "api" => "albums/api/albums",
                     "method" => "DELETE",
                     "message" => "Album borrado correctamente",
