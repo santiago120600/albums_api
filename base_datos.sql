@@ -23,3 +23,14 @@ CREATE TABLE albums(
 );
 
 CREATE OR REPLACE VIEW albums_view AS SELECT a.*, ar.artist_name, g.genre_name FROM genre as g, albums as a, artists as ar where a.artist_fk = ar.artist_id and a.genre_fk = g.genre_id;
+
+CREATE TABLE concerts(
+    concert_id INT PRIMARY KEY AUTO_INCREMENT,
+    concert_title VARCHAR(180) NOT NULL,
+    concert_place VARCHAR(60) NOT NULL,
+    concert_date DATE NOT NULL,
+    artist_fk INT NOT NULL,
+    FOREIGN KEY(artist_fk) REFERENCES artists(artist_id)
+);
+
+CREATE OR REPLACE VIEW concerts_view AS SELECT concerts.*,artists.* FROM concerts JOIN artists ON concerts.artist_fk = artists.artist_id;
